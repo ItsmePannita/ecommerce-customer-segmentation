@@ -125,7 +125,7 @@ The demo allows:
 
 ## Author
 
-**Pannita Maruea**
+**Pannita Marueang**
 
 ## License
 
