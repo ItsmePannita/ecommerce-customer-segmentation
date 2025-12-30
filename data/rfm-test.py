@@ -1,11 +1,28 @@
 # Test file to generate sample RFM data for testing
-import pandas as pd
-
-test_data = pd.DataFrame({
-    'Recency': [10, 50, 100, 200, 5],
-    'Frequency': [20, 5, 2, 1, 50],
-    'Monetary': [5000, 1000, 500, 200, 10000]
-})
-
-test_data.to_csv('test_rfm.csv', index=False)
-print(test_data)
+def predict_batch(file):
+    df = pd.read_csv(file.name)
+    
+    # Standardize column names
+    df.columns = df.columns.str.lower().str.strip()
+    
+    # Map all possible names to correct format
+    column_mapping = {
+        'recency': 'Recency', 'r': 'Recency', 'days': 'Recency',
+        'frequency': 'Frequency', 'f': 'Frequency', 'purchases': 'Recency',
+        'monetary': 'Monetary', 'm': 'Monetary', 'spending': 'Monetary', 'revenue': 'Monetary'
+    }
+    df = df.rename(columns=column_mapping)
+    
+    # Check required columns
+    required = ['Recency', 'Frequency', 'Monetary']
+    if not all(col in df.columns for col in required):
+        return pd.DataFrame({'Error': ['CSV must have columns: Recency, Frequency, Monetary (or R, F, M)']})
+    
+    # Predict
+    features = df[required]
+    features_scaled = scaler.transform(features)
+    
+    df['Churn_Prediction'] = model.predict(features_scaled)
+    df['Churn_Probability'] = model.predict_proba(features_scaled)[:, 1].round(3)
+    
+    return df
