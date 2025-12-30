@@ -26,7 +26,6 @@ Frequency is the strongest predictor — customers who buy often don't churn.
 │   ├── rfm_churn.csv
 │   ├── rfm_clusters.csv
 │   └── cleaned_data.csv
-├── .gitignore
 ├── README.md
 ├── RFM_Churn_Analysis.ipynb
 └── requirements.txt
