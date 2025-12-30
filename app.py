@@ -1,4 +1,3 @@
-# Test file to generate sample RFM data for testing
 def predict_batch(file):
     df = pd.read_csv(file.name)
     
