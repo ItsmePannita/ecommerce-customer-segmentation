@@ -29,8 +29,9 @@ Logistic Regression: 78% Recall, 0.741 AUC
 ## Structure
 
 ```
-├── RFM_Churn_Analysis.ipynb    # Main analysis
-├── app.py                       # Gradio app
+├── RFM_Churn_Analysis.ipynb
+├── deploy/
+│   └── app.py
 ├── models/
 │   ├── churn_model.pkl
 │   └── scaler.pkl
