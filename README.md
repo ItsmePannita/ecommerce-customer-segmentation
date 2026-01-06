@@ -26,26 +26,23 @@ Main finding: Purchase frequency predicts churn 5x better than spending amount.
 
 Logistic Regression: 78% Recall, 0.741 AUC
 
-## Usage
-
-```python
-from src.rfm_churn_pipeline import RFMChurnPipeline
-
-pipeline = RFMChurnPipeline('Online_Retail.xlsx')
-results = pipeline.run()
-```
-
 ## Structure
 
 ```
-├── notebooks/
-│   └── RFM_Churn_Analysis.ipynb
-├── src/
-│   └── rfm_churn_pipeline.py
+├── RFM_Churn_Analysis.ipynb    # Main analysis
+├── app.py                       # Gradio app
 ├── models/
 │   ├── churn_model.pkl
 │   └── scaler.pkl
-└── app.py
+└── requirements.txt
+```
+
+## Usage
+
+Open `RFM_Churn_Analysis.ipynb` in Jupyter Notebook and run all cells.
+
+```bash
+jupyter notebook RFM_Churn_Analysis.ipynb
 ```
 
 ## Requirements
